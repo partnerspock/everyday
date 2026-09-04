@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        "Outfit",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+}
+
+/* ── Split Layout ── */
+.split-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.split-image {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1501290301209-7a0323622985?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.split-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+}
+
+.split-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    background-image:
+        radial-gradient(ellipse 70% 60% at 30% 30%, rgba(10, 132, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 70% 80%, rgba(48, 209, 88, 0.08) 0%, transparent 60%);
+    position: relative;
+    padding: 20px;
+    z-index: 10;
+}
+
+.split-form::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ── Login container ── */
+.login-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 36px 32px;
+    z-index: 10;
+    position: relative;
+    animation: cardIn 0.45s cubic-bezier(0.34, 1.40, 0.64, 1) both;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ── Logo section ── */
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    font-size: 2.8rem;
+    display: inline-block;
+    margin-bottom: 6px;
+    animation: float 4s ease-in-out infinite;
+    /* drop shadow for clarity on dark */
+    filter: drop-shadow(0 4px 12px rgba(10, 132, 255, 0.35));
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.appName {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.tagline {
+    color: rgba(235, 235, 245, 0.55);
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* ── Error badge ── */
+.error-badge {
+    background: rgba(255, 69, 58, 0.12);
+    border: 1px solid rgba(255, 69, 58, 0.28);
+    color: #ff6961;
+    border-radius: 12px;
+    padding: 11px 14px;
+    font-size: 0.84rem;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    animation: shake 0.38s ease;
+    line-height: 1.4;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* ── Form ── */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: rgba(235, 235, 245, 0.55);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    padding: 13px 15px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    caret-color: #0a84ff;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(235, 235, 245, 0.30);
+}
+
+.form-input:focus {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: #0a84ff;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.22);
+}
+
+/* ── Submit button — iOS filled blue ── */
+.btn-submit {
+    width: 100%;
+    background: #0a84ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 0.97rem;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition:
+        background-color 0.18s ease,
+        transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.18s ease;
+    box-shadow: 0 4px 18px rgba(10, 132, 255, 0.35);
+}
+
+.btn-submit:hover {
+    background: #409cff;
+    box-shadow: 0 6px 22px rgba(10, 132, 255, 0.45);
+}
+
+.btn-submit:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 10px rgba(10, 132, 255, 0.25);
+}
+
+.auth-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.auth-footer p {
+    margin: 0;
+}
+
+.auth-link {
+    color: #0a84ff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: #4338ca;
+    text-decoration: underline;
+}
