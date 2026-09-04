@@ -8,6 +8,7 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+            optimizedFallbacks: false, // <-- Tambahkan di sini
             fonts: [
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
