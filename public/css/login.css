@@ -11,12 +11,17 @@
         "Outfit",
         sans-serif;
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    /* Menghilangkan highlight biru saat tap di HP */
 }
 
 body {
     min-height: 100vh;
+    min-height: 100dvh;
+    /* Dynamic viewport height untuk browser mobile */
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     color: #fff;
     background-color: #000;
 }
@@ -25,6 +30,7 @@ body {
 .split-layout {
     display: flex;
     min-height: 100vh;
+    min-height: 100dvh;
     width: 100vw;
 }
 
@@ -53,7 +59,11 @@ body {
         radial-gradient(ellipse 70% 60% at 30% 30%, rgba(10, 132, 255, 0.15) 0%, transparent 60%),
         radial-gradient(ellipse 60% 70% at 70% 80%, rgba(48, 209, 88, 0.08) 0%, transparent 60%);
     position: relative;
-    padding: 20px;
+    padding: 24px;
+    padding-top: calc(24px + env(safe-area-inset-top));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+    padding-left: calc(24px + env(safe-area-inset-left));
+    padding-right: calc(24px + env(safe-area-inset-right));
     z-index: 10;
 }
 
@@ -100,7 +110,6 @@ body {
     display: inline-block;
     margin-bottom: 6px;
     animation: float 4s ease-in-out infinite;
-    /* drop shadow for clarity on dark */
     filter: drop-shadow(0 4px 12px rgba(10, 132, 255, 0.35));
 }
 
@@ -187,7 +196,8 @@ body {
     border-radius: 12px;
     padding: 13px 15px;
     color: #ffffff;
-    font-size: 0.95rem;
+    font-size: 16px;
+    /* Mencegah auto-zoom pada browser iOS Safari */
     outline: none;
     caret-color: #0a84ff;
     transition:
@@ -257,4 +267,77 @@ body {
 .auth-link:hover {
     color: #4338ca;
     text-decoration: underline;
+}
+
+/* ── MEDIA QUERIES FOR MOBILE RESPONSIVENESS ── */
+
+/* 1. Tablet & Mobile Devices (Menghilangkan Split Image) */
+@media screen and (max-width: 900px) {
+    .split-image {
+        display: none;
+    }
+
+    .split-form {
+        flex: 1 0 100%;
+        width: 100%;
+    }
+}
+
+/* 2. Mobile Standard & iOS (iPhone 12 Mini, 14, Android) */
+@media screen and (max-width: 480px) {
+    .split-form {
+        padding: 16px;
+        padding-top: max(20px, env(safe-area-inset-top));
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+
+    .login-container {
+        padding: 24px 20px;
+        max-width: 100%;
+    }
+
+    .logo-section {
+        margin-bottom: 24px;
+    }
+
+    .logo-icon {
+        font-size: 2.4rem;
+    }
+
+    .appName {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.8rem;
+    }
+
+    .form-input {
+        padding: 12px 14px;
+    }
+
+    .btn-submit {
+        padding: 13px;
+        font-size: 0.92rem;
+    }
+}
+
+/* 3. iPhone 12 Mini & Small Android Screen (Sangat Pendek / Kecil) */
+@media screen and (max-width: 380px) {
+    .login-container {
+        padding: 18px 14px;
+    }
+
+    .logo-section {
+        margin-bottom: 18px;
+    }
+
+    .logo-icon {
+        font-size: 2rem;
+        margin-bottom: 2px;
+    }
+
+    .appName {
+        font-size: 1.35rem;
+    }
 }

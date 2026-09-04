@@ -2,7 +2,7 @@
 <html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Portfolio | Full Responsive Bento Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,9 +73,7 @@
       width: 100vw;
       height: 100vh;
       background-image: 
-        /* Upper Left Glow (Besar & Dominan) */
         radial-gradient(circle at 10% 15%, var(--glow-top-left, rgba(56, 189, 248, 0.12)) 0%, transparent 45%),
-        /* Bottom Right Glow (Kecil & Lembut) */
         radial-gradient(circle at 90% 85%, var(--glow-bottom-right, rgba(192, 132, 252, 0.08)) 0%, transparent 40%);
       z-index: -1;
       pointer-events: none;
@@ -87,7 +85,6 @@
       padding: 0 2rem;
     }
 
-    /* Full Width Sticky Navigation Header */
     .nav {
       position: sticky;
       top: 0;
@@ -141,7 +138,6 @@
       box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
     }
 
-    /* Hero Section */
     .hero {
       min-height: 55vh;
       display: flex;
@@ -176,7 +172,6 @@
       max-width: 650px;
     }
 
-    /* Full Width Timeline Sub-Nav */
     .story-timeline-nav {
       position: sticky;
       top: 66px;
@@ -196,6 +191,11 @@
       display: flex;
       gap: 2rem;
       overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .timeline-container::-webkit-scrollbar {
+      display: none;
     }
 
     .timeline-link {
@@ -218,7 +218,6 @@
       border-bottom-color: var(--neon-cyan);
     }
 
-    /* Chapter Section */
     .chapter-section {
       margin-bottom: 7rem;
       scroll-margin-top: 150px;
@@ -242,7 +241,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Bento Card & Glow Hover */
     .bento-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -305,13 +303,6 @@
       letter-spacing: -0.01em;
     }
     
-    .card-title-secondary {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      margin-bottom: 1rem;
-    }
-
     .card-desc {
       color: var(--text-muted);
       font-size: 0.95rem;
@@ -347,136 +338,16 @@
       box-shadow: 0 10px 30px -10px var(--neon-emerald);
     }
 
-    .arrow-icon {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      color: var(--text-muted);
-      transition: all 0.3s ease;
-    }
-
-    .bento-card:hover .arrow-icon {
-      color: var(--text);
-      transform: translate(3px, -3px);
-    }
-
-    /* Layout Variants */
-    .grid-v1, .grid-v2 {
+    /* Layout Grids */
+    .grid-v1 {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 1.5rem;
     }
 
-    .grid-v3 {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    /* IG Story Portrait Widget (9:16 Aspect Ratio) */
-    .story-card-container {
-      grid-column: span 5;
-      display: flex;
-      justify-content: center;
-    }
-
-    .ig-story-card {
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 9 / 16;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: #000;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .ig-story-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: var(--neon-pink);
-      box-shadow: 0 20px 40px rgba(247, 37, 133, 0.3);
-    }
-
-    .ig-story-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-      transition: opacity 0.3s ease;
-    }
-
-    .ig-story-card:hover .ig-story-img {
-      opacity: 0.6;
-    }
-
-    .ig-story-header {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      right: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      z-index: 2;
-    }
-
-    .ig-story-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid var(--neon-pink);
-    }
-
-    .ig-story-username {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .ig-story-footer {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      right: 1.5rem;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .ig-story-caption {
-      font-size: 0.9rem;
-      color: #ffffff;
-      font-weight: 500;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-      line-height: 1.4;
-    }
-
-    .btn-visit-story {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      width: 100%;
-      padding: 0.8rem 1.2rem;
-      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(247, 37, 133, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .btn-visit-story:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 25px rgba(247, 37, 133, 0.6);
-    }
+    .grid-v1-col-12 { grid-column: span 12; }
+    .grid-v1-col-6 { grid-column: span 6; }
+    .grid-v1-col-4 { grid-column: span 4; }
 
     .grid-v4 {
       display: grid;
@@ -489,109 +360,67 @@
       grid-template-columns: 1fr;
     }
 
-    .full-card {
-      background: linear-gradient(135deg, rgba(52, 211, 153, 0.08) 0%, var(--surface) 100%);
-      border: 1px solid rgba(52, 211, 153, 0.25);
+    /* Church Event & Custom Chapter Components */
+    .chapter-project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+      margin-bottom: 1.5rem;
     }
 
-    .statement-card {
-      margin: 6rem 0;
-      padding: 4rem 2rem;
-      text-align: center;
-      border-radius: 24px;
-      background: linear-gradient(180deg, var(--surface) 0%, transparent 100%);
+    .chapter-project-grid hr {
+      border: none;
+      border-top: 1px solid rgba(16, 185, 129, 0.3);
+      margin: 0;
+      grid-column: span 2;
+    }
+
+    .ig-thumb-link {
+      display: block;
+      width: 220px;
+      aspect-ratio: 9 / 16;
+      border-radius: 20px;
       border: 1px solid var(--border);
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: border-color 0.3s ease;
     }
 
-    .statement-card h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.2;
+    .ig-thumb-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 0;
+    .ig-thumb-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
-      justify-content: space-between;
-      color: var(--text-muted);
-      font-size: 0.85rem;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
     }
 
-    /* --- RESPONSIVE MOBILE FIXES --- */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.25rem;
-      }
-
-      .nav-container {
-        padding: 1rem 1.25rem;
-      }
-
-      .timeline-container {
-        padding: 0.75rem 1.25rem;
-        gap: 1.25rem;
-      }
-
-      .timeline-link {
-        font-size: 0.85rem;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 3rem 0 1.5rem 0;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.2rem, 8vw, 3rem);
-        line-height: 1.1;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .grid-v1, .grid-v2, .grid-v3, .grid-v4 {
-        grid-template-columns: 1fr !important;
-      }
-
-      [style*="grid-column"] {
-        grid-column: span 1 !important;
-      }
-
-      .bento-card {
-        padding: 1.5rem;
-      }
-
-      .story-card-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      }
-
-      .ig-story-card {
-        max-width: 280px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 0.75rem;
-        text-align: center;
-        padding: 2.5rem 0;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .bento-card {
-        padding: 1.25rem;
-      }
+    .concept-step-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
     }
 
     .lifecycle-carousel-wrapper {
@@ -633,11 +462,118 @@
     }
 
     @keyframes infiniteScroll {
-      0% {
-        transform: translateX(0);
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .full-card {
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.08) 0%, var(--surface) 100%);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .statement-card {
+      margin: 6rem 0;
+      padding: 4rem 2rem;
+      text-align: center;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--surface) 0%, transparent 100%);
+      border: 1px solid var(--border);
+    }
+
+    .statement-card h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.2;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* --- RESPONSIVE FIXES (iPhone 12, 14, & Android Umumnya) --- */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
       }
-      100% {
-        transform: translateX(-50%);
+
+      .nav-container {
+        padding: 1rem 1.25rem;
+      }
+
+      .timeline-container {
+        padding: 0.75rem 1.25rem;
+        gap: 1.25rem;
+      }
+
+      .timeline-link {
+        font-size: 0.85rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 3rem 0 1.5rem 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      /* Stack grid layouts on mobile */
+      .grid-v1, .grid-v4, .chapter-project-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .grid-v1-col-12, .grid-v1-col-6, .grid-v1-col-4,
+      .chapter-project-grid hr {
+        grid-column: span 1 !important;
+      }
+
+      .bento-card {
+        padding: 1.5rem;
+      }
+
+      .ig-thumb-link {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .full-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+        padding: 2.5rem 0;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .bento-card {
+        padding: 1.25rem;
       }
     }
   </style>
@@ -686,7 +622,7 @@
       </div>
 
       <div class="grid-v1">
-        <div class="bento-card glow-cyan" style="grid-column: span 12;">
+        <div class="bento-card glow-cyan grid-v1-col-12">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-user"></i></div>
             <h3 class="card-title">Who am I?</h3>
@@ -695,52 +631,27 @@
           <p class="card-desc">I enjoy understanding how things work as a whole — not just looking at one feature or one problem, but seeing how people, processes, data, and systems are connected.</p>
           <p class="card-desc">My career has allowed me to work across different areas, from ERP and data migration to product data, system testing, process analysis, and application development. These experiences shaped the way I approach problems today: understand the situation first, find the gap, and then figure out what can be improved.</p>
         </div>
-        <!--<div class="bento-card glow-purple" style="grid-column: span 4;">
-          <div class="card-meta" style="gap: 1rem;">
-            <div class="card-icon"><i class="fa-solid fa-user-tag"></i></div>
-            <h3 class="card-title">Who am I?</h3>
-          </div>
-          <p class="card-desc">System and Business Analyst with a background in Information Systems and experience working with ERP systems, business processes, data, and software applications.</p>
-        </div>
 
-        <div class="bento-card glow-purple" style="grid-column: span 4;">
-          <div class="card-meta" style="gap: 1rem;">
-            <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-            <h3 class="card-title">What I enjoyed?</h3>
-          </div>
-          <p class="card-desc">I enjoy understanding how things work as a whole — not just looking at one feature or one problem, but seeing how people, processes, data, and systems are connected.</p>
-        </div>
-
-        <div class="bento-card glow-purple" style="grid-column: span 4;">
-          <div class="card-meta" style="gap: 1rem;">
-            <div class="card-icon"><i class="fa-solid fa-file-circle-check"></i></div>
-            <h3 class="card-title">What I've done?</h3>
-          </div>
-          <p class="card-desc">My career has allowed me to work across different areas, from ERP and data migration to product data, system testing, process analysis, and application development.</p>
-          <p class="card-desc">These experiences shaped the way I approach problems today: understand the situation first, find the gap, and then figure out what can be improved.</p>
-        </div>
-      </div>-->
-
-        <div class="bento-card glow-cyan" style="grid-column: span 6;">
+        <div class="bento-card glow-cyan grid-v1-col-6">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-spinner"></i></div>
             <h3 class="card-title">How do I work?</h3>
           </div>
-          <p class="card-desc">Usually start by understanding the current situation.
+          <p class="card-desc">Usually start by understanding the current situation.</p>
           <p class="card-desc">Look at how a process works, what the system is doing, what users actually need, and where the gap exists between them. From there, I break the problem down, explore possible solutions, and work with the people involved to turn the solution into something practical.</p>
           <p class="card-desc">Enjoy being involved across the process — from understanding the problem and designing a solution to testing it and making sure it works in the real workflow.</p>
-          <p class="card-desc">I value autonomy. <b>Work best when I’m trusted</b> with the responsibility to understand a problem, explore the possibilities, and take ownership of finding a solution.</p>
+          <p class="card-desc" style="margin-bottom: 0;">I value autonomy. <b>Work best when I’m trusted</b> with the responsibility to understand a problem, explore the possibilities, and take ownership of finding a solution.</p>
         </div>
 
-        <div class="bento-card glow-cyan" style="grid-column: span 6;">
+        <div class="bento-card glow-cyan grid-v1-col-6">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
             <h3 class="card-title">What I enjoyed?</h3>
           </div>
-          <p class="card-desc">I enjoy problems that require me to <b>understand, connect, and improve</b>.
+          <p class="card-desc">I enjoy problems that require me to <b>understand, connect, and improve</b>.</p>
           <p class="card-desc">Especially problems where the answer isn’t immediately obvious — where I need to understand a business process, identify what is missing or not working, connect it with the system, and find a better way forward.</p>
           <p class="card-desc">I don’t want to solve the same problem every day.</p>
-          <p class="card-desc">I enjoy working on different challenges because each one gives me an opportunity to learn something new, understand a different part of a business, and use what I know to create a practical solution.</p>
+          <p class="card-desc" style="margin-bottom: 0;">I enjoy working on different challenges because each one gives me an opportunity to learn something new, understand a different part of a business, and use what I know to create a practical solution.</p>
         </div>
       </div>
     </section>
@@ -751,32 +662,32 @@
         <h2 class="chapter-title">How I Approach Problems</h2>
       </div>
       <div class="grid-v1">
-        <div class="bento-card glow-pink" style="grid-column: span 4;">
+        <div class="bento-card glow-pink grid-v1-col-4">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
             <h3 class="card-title">Analyze</h3>
           </div>
           <p class="card-desc">I start by understanding how a system, process, or requirement works as a whole.</p>
           <p class="card-desc">Look at how users work, how the system behaves, how data moves, and how different parts of a process are connected.</p>
-          <p class="card-desc">This helps me understand the actual problem before thinking about a solution.</p>
+          <p class="card-desc" style="margin-bottom: 0;">This helps me understand the actual problem before thinking about a solution.</p>
         </div>
-        <div class="bento-card glow-pink" style="grid-column: span 4;">
+        <div class="bento-card glow-pink grid-v1-col-4">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-object-ungroup"></i></div>
             <h3 class="card-title">Find Gaps</h3>
           </div>
           <p class="card-desc">Once I understand the current situation, I look for gaps between what the business or users need and what the current system or process provides.</p>
-          <p class="card-desc">These gaps can come from unclear requirements, inefficient processes, missing system capabilities, or behavior that does not match the actual workflow.</p>
+          <p class="card-desc" style="margin-bottom: 0;">These gaps can come from unclear requirements, inefficient processes, missing system capabilities, or behavior that does not match the actual workflow.</p>
         </div>
-        <div class="bento-card glow-pink" style="grid-column: span 4;">
+        <div class="bento-card glow-pink grid-v1-col-4">
           <div class="card-meta" style="gap: 1rem;">
             <div class="card-icon"><i class="fa-solid fa-object-group"></i></div>
             <h3 class="card-title" style="font-size: 1.493rem;">Design Solutions</h3>
           </div>
           <p class="card-desc">After identifying the gap, I explore practical ways to address it.</p>
-          <p class="card-desc">I work between business users and technical teams to translate the problem into a solution that can actually be implemented, then validate it through testing and real workflows to make sure it works as intended.</p>
+          <p class="card-desc" style="margin-bottom: 0;">I work between business users and technical teams to translate the problem into a solution that can actually be implemented, then validate it through testing and real workflows to make sure it works as intended.</p>
         </div>
-        <div class="bento-card glow-pink" style="grid-column: span 12;">
+        <div class="bento-card glow-pink grid-v1-col-12">
           <div class="card-meta" style="justify-content: center; margin-bottom: 0rem;">
             <h3 class="card-title">My Problem-Solving Workflow</h3>
           </div>
@@ -787,46 +698,47 @@
                 <div class="step-desc">Understand where the system or process currently stands.</div>
               </div>
               <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>2. Understand Workflow</b></span></div>
-              <div class="step-desc">See how the process actually works in practice</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>3. Identify Users Thinking</b></span></div>
-              <div class="step-desc">Understand the problems users face in the current workflow.</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>4. Find the Gap</b></span></div>
-              <div class="step-desc">Identify what the current system or process does not cover.</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>5. Develop Solution</b></span></div>
-              <div class="step-desc">Find or build a practical solution to address the gap.</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>6. Challenge the Solution</b></span></div>
-              <div class="step-desc">Check whether the solution creates other problems.</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>7. Implement</b></span></div>
-              <div class="step-desc">Put the agreed solution into practice.</div>
-            </div>
-            <div class="lifecycle-step-card">
-              <div class="step-header"><span class="step-number"><b>8. Improve</b></span></div>
-              <div class="step-desc">Learn from the result and refine where necessary.</div>
+                <div class="step-header"><span class="step-number"><b>2. Understand Workflow</b></span></div>
+                <div class="step-desc">See how the process actually works in practice</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>3. Identify Users Thinking</b></span></div>
+                <div class="step-desc">Understand the problems users face in the current workflow.</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>4. Find the Gap</b></span></div>
+                <div class="step-desc">Identify what the current system or process does not cover.</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>5. Develop Solution</b></span></div>
+                <div class="step-desc">Find or build a practical solution to address the gap.</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>6. Challenge the Solution</b></span></div>
+                <div class="step-desc">Check whether the solution creates other problems.</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>7. Implement</b></span></div>
+                <div class="step-desc">Put the agreed solution into practice.</div>
+              </div>
+              <div class="lifecycle-step-card">
+                <div class="step-header"><span class="step-number"><b>8. Improve</b></span></div>
+                <div class="step-desc">Learn from the result and refine where necessary.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </section>
 
-    <section class="chapter-section" id="sec-4">
+    <!-- Chapter III: Professional Projects / Church Event -->
+    <section class="chapter-section" id="sec-3">
       <div class="chapter-header">
-        <div class="chapter-tag" style="color: var(--neon-emerald);">Chapter IV — Community Project</div>
+        <div class="chapter-tag" style="color: var(--neon-emerald);">Chapter III — Professional Projects</div>
         <h2 class="chapter-title">Church Event</h2>
       </div>
 
-      <div class="bento-card glow-emerald" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-bottom: 1.5rem;">
+      <div class="bento-card glow-emerald chapter-project-grid">
 
         <div style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
@@ -851,11 +763,11 @@
           </div>
         </div>
 
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
+        <hr>
 
         <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
           <h3 class="card-title" style="margin-bottom: 0;">The First Concept</h3>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
               01
             </div>
@@ -864,7 +776,7 @@
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Physical markers were used to indicate selected seats.</p>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-purple); flex-shrink: 0;">
               02
             </div>
@@ -873,7 +785,7 @@
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Seat availability had to be checked manually.</p>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-pink); flex-shrink: 0;">
               03
             </div>
@@ -892,7 +804,7 @@
           <p class="card-desc" style="margin-bottom: 0;">I noticed that seat availability and any changes to seat selections would still need to be managed manually.</p>
           <p class="card-desc" style="margin-bottom: 0;">I saw an opportunity to digitize the process, making seat management more efficient and better aligned with the cinema concept of the event.</p>
           <h3 class="card-title">The Impacts</h3>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
               01
             </div>
@@ -901,7 +813,7 @@
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Clearer visibility of seat status.</p>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-purple); flex-shrink: 0;">
               02
             </div>
@@ -910,7 +822,7 @@
               <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Easier access to seat availability.</p>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
+          <div class="concept-step-card">
             <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-pink); flex-shrink: 0;">
               03
             </div>
@@ -921,13 +833,13 @@
           </div>
         </div>
 
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
+        <hr>
 
         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: stretch; grid-column: span 2;">
           <div style="display: flex; justify-content: flex-start; align-items: center;">
-            <a href="https://www.instagram.com/reel/DSM6cjHEnCy/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" style="display: block; width: 220px; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid var(--border); background: #000; position: relative; overflow: hidden; text-decoration: none; flex-shrink: 0; transition: border-color 0.3s ease;">
-              <img src="/storage/attachments/portfolio/ig-thumnail.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" alt="Video Thumbnail">
-              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+            <a href="https://www.instagram.com/reel/DSM6cjHEnCy/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="ig-thumb-link">
+              <img src="/storage/attachments/portfolio/ig-thumnail.jpg" alt="Video Thumbnail">
+              <div class="ig-thumb-overlay">
                 <i class="fa-solid fa-play" style="color: #ffffff; font-size: 1.1rem; margin-left: 3px;"></i>
               </div>
             </a>
@@ -951,7 +863,7 @@
           </div>
         </div>
 
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
+        <hr>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; grid-column: span 2;">
           <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
@@ -1038,215 +950,10 @@
       </div>
     </section>
 
-    <section class="chapter-section" id="sec-5">
-      <div class="chapter-header">
-        <div class="chapter-tag" style="color: var(--neon-emerald);">Chapter V — Personal Project</div>
-        <h2 class="chapter-title">Everyday</h2>
-      </div>
-
-      <div class="bento-card glow-emerald" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; margin-bottom: 1.5rem;">
-
-        <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="card-meta" style="gap: 1rem;">
-              <img src="https://ui-avatars.com/api/?name=Lorem+Ipsum&background=f72585&color=fff" class="card-icon" alt="Avatar">
-            </div>
-            <div class="card-meta" style="gap: 1rem;">
-              <h3 class="card-title">Everyday</h3>
-            </div>
-            <p class="card-desc">This Christmas church event was designed around a cinema concept, with the venue, seating, and overall experience arranged to recreate a cinema environment.</p>
-            <p class="card-desc" style="margin-bottom: 0;">I was involved in the event committee and saw firsthand how the ticket and seat-selection process was planned to be handled manually, which led me to identify an opportunity to digitize the process.</p>
-          </div>
-          <div class="card-meta" style="margin-top: 1.5rem; margin-bottom: 0;">
-            <span class="tech-tag"><i class="fa-brands fa-instagram"></i> Instagram</span>
-          </div>
-        </div>
-
-        <div style="width: 100%; aspect-ratio: 1 / 1; border-radius: 16px; border: 1px dashed var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; align-self: center;">
-          <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
-            <i class="fa-regular fa-image" style="font-size: 2rem; margin-bottom: 0.5rem; display: block; opacity: 0.5;"></i>
-            <span>1:1 Photo Placeholder</span>
-          </div>
-        </div>
-
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
-
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
-          <h3 class="card-title" style="margin-bottom: 0;">The First Concept</h3>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
-              01
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Physical seat markers</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Physical markers were used to indicate selected seats.</p>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-purple); flex-shrink: 0;">
-              02
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Manual Seat Selection</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Seat availability had to be checked manually.</p>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-pink); flex-shrink: 0;">
-              03
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Manual Seat Changes</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Seat changes required to be updated manually.</p>
-            </div>
-          </div>
-          <h3 class="card-title" style="margin-top: 1rem; margin-bottom: 0;">What Was My Idea?</h3>
-          <p class="card-desc" style="margin-bottom: 0;">Proposed digitizing the seat-selection process by replacing the physical seat markers with a digital seat-management system.</p>
-          <p class="card-desc" style="margin-bottom: 0;">The goal was to make seat availability easier to manage while creating a more seamless experience that matched the cinema concept of the event.</p>
-        </div>
-
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
-          <h3 class="card-title" style="margin-bottom: 0;">The Opportunities</h3>
-          <p class="card-desc" style="margin-bottom: 0;">I noticed that seat availability and any changes to seat selections would still need to be managed manually.</p>
-          <p class="card-desc" style="margin-bottom: 0;">I saw an opportunity to digitize the process, making seat management more efficient and better aligned with the cinema concept of the event.</p>
-          <h3 class="card-title">The Impacts</h3>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
-              01
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Digitalize Seat Tracking</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Clearer visibility of seat status.</p>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-purple); flex-shrink: 0;">
-              02
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Clearly See Seat Availability</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Easier access to seat availability.</p>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;">
-            <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-pink); flex-shrink: 0;">
-              03
-            </div>
-            <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem;">Easily Change Seat Selection</h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Seat updates without changing physical records.</p>
-            </div>
-          </div>
-        </div>
-
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
-
-        <div style="display: flex; justify-content: flex-start; align-items: center;">
-          <a href="https://www.instagram.com/reel/DSM6cjHEnCy/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" style="display: block; width: 220px; aspect-ratio: 9 / 16; border-radius: 20px; border: 1px solid var(--border); background: #000; position: relative; overflow: hidden; text-decoration: none; flex-shrink: 0; transition: border-color 0.3s ease;">
-            <img src="/storage/attachments/portfolio/ig-thumnail.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;" alt="Video Thumbnail">
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
-              <i class="fa-solid fa-play" style="color: #ffffff; font-size: 1.1rem; margin-left: 3px;"></i>
-            </div>
-          </a>
-        </div>
-
-        <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <h3 class="card-title" style="margin-bottom: 0.5rem; font-size: 1.35rem;">System Results</h3>
-            <p class="card-desc" style="margin-bottom: 0.75rem;">The system was successfully used for four consecutive weeks, giving the event team a digital way to manage seat availability, selections, and changes during the event.</p>
-            <p class="card-desc" style="margin-bottom: 1.5rem;">It made the process easier to operate while supporting the cinema-themed experience.</p>
-            <h3 class="card-title" style="margin-bottom: 0.5rem; font-size: 1.35rem;">Real-World Impacts</h3>
-            <p class="card-desc" style="margin-bottom: 0.75rem;">The cinema concept also gained strong engagement on Instagram, with the event content reaching <b>72K views</b>.</p>
-            <p class="card-desc" style="margin-bottom: 0;">This became an additional reflection of how the concept resonated with the audience beyond the operational side of the event.</p>
-          </div>
-          <div class="card-meta" style="margin-top: 1.5rem; margin-bottom: 0; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a href="#" class="tech-tag-link" style="text-decoration: none; padding: 0.4rem 1rem;">Lets Try</a>
-            <a href="https://www.instagram.com/reel/DSM6cjHEnCy/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==" class="tech-tag" style="text-decoration: none; padding: 0.4rem 1rem; border-color: var(--neon-pink); color: var(--neon-pink);" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-instagram"></i> Watch Reels on Instagram
-            </a>
-          </div>
-        </div>
-
-        <hr style="border: none; border-top: 1px solid rgba(16, 185, 129, 0.3); margin: 0; grid-column: span 2;">
-
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
-          <h3 class="card-title" style="margin-bottom: 0;">How I Built It?</h3>
-          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
-                01
-              </div>
-              <div>
-                <h3 class="card-title" style="margin-bottom: 0; font-size: 1.25rem;">Setup & Approach</h3>
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 1rem; border-left: 2px solid var(--border); margin-left: 1.25rem;">
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Built without a framework</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Small codebase: 5 PHP files + 1 external CSS</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Developed locally using XAMPP</p>
-              </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
-                02
-              </div>
-              <div>
-                <h3 class="card-title" style="margin-bottom: 0; font-size: 1.25rem;">System Design</h3>
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 1rem; border-left: 2px solid var(--border); margin-left: 1.25rem;">
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Designed the database yourself</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Managed database through phpMyAdmin</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Built the system around the actual seat-booking flow</p>
-              </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--neon-cyan); flex-shrink: 0;">
-                03
-              </div>
-              <div>
-                <h3 class="card-title" style="margin-bottom: 0; font-size: 1.25rem;">Deployment</h3>
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-left: 1rem; border-left: 2px solid var(--border); margin-left: 1.25rem;">
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Ran the application from your own PC as the server</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Used ngrok to expose the local application</p>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Actual event setup: 1 laptop + 1 tablet for ushers</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 1rem;">
-          <h3 class="card-title" style="margin-bottom: 0;">System Architecture Diagram</h3>
-          <div style="width: 100%; aspect-ratio: 1 / 1; border-radius: 16px; border: 1px dashed var(--border); background: var(--surface); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; align-self: center;">
-            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
-              <i class="fa-regular fa-image" style="font-size: 2rem; margin-bottom: 0.5rem; display: block; opacity: 0.5;"></i>
-              <span>1:1 Photo Placeholder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- Chapter IV: Community Project -->
     <section class="chapter-section" id="sec-4">
       <div class="chapter-header">
-        <div class="chapter-tag" style="color: var(--neon-emerald);">Chapter IV — Experimental Lab</div>
+        <div class="chapter-tag" style="color: var(--neon-emerald);">Chapter IV — Community Project</div>
         <h2 class="chapter-title">UI Components & Tools</h2>
       </div>
 
@@ -1274,14 +981,15 @@
       </div>
     </section>
 
+    <!-- Chapter V: Personal Project -->
     <section class="chapter-section" id="sec-5">
       <div class="chapter-header">
-        <div class="chapter-tag" style="color: var(--neon-amber);">Chapter V — Profile Overview</div>
+        <div class="chapter-tag" style="color: var(--neon-amber);">Chapter V — Personal Project</div>
         <h2 class="chapter-title">About & Experience</h2>
       </div>
 
       <div class="grid-v5">
-        <div class="bento-card full-card glow-emerald" style="flex-direction: row; gap: 2rem; align-items: center; flex-wrap: wrap;">
+        <div class="bento-card full-card glow-emerald">
           <div class="card-icon" style="width: 80px; height: 80px; flex-shrink: 0;">
             <img src="https://ui-avatars.com/api/?name=Lorem+Ipsum&background=random&color=fff" alt="Avatar" style="width:100%; height:100%; border-radius:12px; object-fit: cover;">
           </div>
@@ -1312,7 +1020,6 @@
   </div>
 
   <script>
-    // 1. Theme Switcher Logic
     const toggleBtn = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const themeText = document.getElementById('themeText');
@@ -1332,7 +1039,6 @@
       }
     });
 
-    // 2. Smooth Scroll & Auto Highlighting for 5 Sections
     const timelineLinks = document.querySelectorAll('.timeline-link');
     const sections = document.querySelectorAll('.chapter-section');
 
