@@ -21,14 +21,17 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        $loginInput = $request->input('login');
+        $loginInput = trim($request->input('login'));
         $field = filter_var($loginInput, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         $admin = Admin::where($field, $loginInput)->first();
 
-        if ($admin && ($admin->is_confirmed === 'not_confirmed') || is_null($admin->confirmed_at)) {
+        if ($admin && (
+            $admin->is_confirmed === 'not_confirmed' ||
+            is_null($admin->confirmed_at)
+        )) {
             return back()->withErrors([
-                'login' => 'Please confirm you account first.',
+                'login' => 'Please confirm your account first.',
             ])->onlyInput('login');
         }
 

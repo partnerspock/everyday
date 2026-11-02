@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
                 'name'         => 'Partner',
                 'username'     => 'partner',
                 'email'        => 'partner@everyday.test',
-                'password'     => Hash::make('nikita'),
+                'password'     => Hash::make('admin'),
                 'is_confirmed'       => 'confirmed',
                 'confirmed_at' => now(),
                 'target_role'  => $partnerRole->id,
